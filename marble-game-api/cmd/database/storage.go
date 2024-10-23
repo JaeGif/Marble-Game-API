@@ -26,8 +26,9 @@ func InitDB() {
   dbPass := os.Getenv("DB_PASSWORD")
   dbName := os.Getenv("DB_NAME")
   dbExt := os.Getenv("DB_EXT")
+
   var dbString = fmt.Sprintf("%s://%s:%s@%s:%s/%s", dbName, dbUser, dbPass, dbHost, dbPort, dbExt)
-  fmt.Print(dbString)
+
   db, err = sql.Open("postgres", dbString)
 
   if err != nil {
@@ -35,6 +36,7 @@ func InitDB() {
   }
 
   err = db.Ping()
+  
   if err != nil {
     panic(err.Error())
   }
