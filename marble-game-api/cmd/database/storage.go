@@ -7,6 +7,8 @@ import (
 	"os"
 
 	"github.com/joho/godotenv"
+
+	_ "github.com/lib/pq"
 )
 
 
@@ -24,8 +26,9 @@ func InitDB() {
   dbPass := os.Getenv("DB_PASSWORD")
   dbName := os.Getenv("DB_NAME")
   dbExt := os.Getenv("DB_EXT")
-
-  db, err = sql.Open("postgres", fmt.Sprintf("name=%s://user=%s:password=%s@host=%s:port=%s/ext=%s sslmode=disable", dbName, dbUser, dbPass, dbHost, dbPort, dbExt))
+  var dbString = fmt.Sprintf("%s://%s:%s@%s:%s/%s", dbName, dbUser, dbPass, dbHost, dbPort, dbExt)
+  fmt.Print(dbString)
+  db, err = sql.Open("postgres", dbString)
 
   if err != nil {
     panic(err.Error())
@@ -42,4 +45,3 @@ func InitDB() {
 func GetDB() *sql.DB{
     return db
 }
-// postgresql://postgres:WIgzYmcKWHKhPygDhJmDoIzZZLYLFcDP@autorack.proxy.rlwy.net:28107/railway
