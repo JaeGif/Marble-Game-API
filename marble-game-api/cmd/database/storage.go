@@ -42,4 +42,3 @@ func InitDB() {
 func GetDB() *sql.DB{
     return db
 }
-// postgresql://postgres:WIgzYmcKWHKhPygDhJmDoIzZZLYLFcDP@autorack.proxy.rlwy.net:28107/railway
