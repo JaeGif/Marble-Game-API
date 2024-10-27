@@ -22,5 +22,6 @@ func GetScores (c echo.Context) error {
 	}
 	fmt.Println(rows)
 	var scores = rows
+	fmt.Println(http.StatusOK, scores)
 	return c.JSON(http.StatusOK, scores)
 }
