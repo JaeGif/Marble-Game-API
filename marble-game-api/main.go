@@ -1,7 +1,6 @@
 package main
 
 import (
-	storage "marble-game-api/cmd/database"
 	"marble-game-api/cmd/handlers"
 
 	//	"github.com/labstack/echo/middleware"
@@ -13,7 +12,7 @@ func main() {
 	e.GET("/", handlers.Home)
 
 	// connect to DB
-	storage.InitDB()
+	// storage.InitDB()
 
 	// starting routes
 /* 	e.POST("/users", handlers.CreateUser)
@@ -22,7 +21,7 @@ func main() {
 	e.PUT("/measurements/:id", handlers.UpdateMeasurement) */
 
 	e.GET("/scores", handlers.GetScores)
-	e.Use(handlers.LogRequest)
+//	e.Use(handlers.LogRequest)
 //	e.Use(middleware.Logger)
 /* e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
 	AllowOrigins: []string{"http://localhost:3000"},

@@ -2,26 +2,28 @@ package handlers
 
 import (
 	"fmt"
-	storage "marble-game-api/cmd/database"
-	"net/http"
 
 	"github.com/labstack/echo/v4"
 )
 
 func GetScores (c echo.Context) error {
-	
-	db := storage.GetDB()
+	fmt.Println("Entry")
+
+	return c.String(200, "Done")
+
+/* 	db := storage.GetDB()
 
 	psqlStatement := `SELECT TOP 10 FROM scores`
 
 	rows, err := db.Query(psqlStatement)
-
+	fmt.Println(err, rows)
 	if err != nil {
 		// err exists
 		return err
 	}
+
 	fmt.Println(rows)
 	var scores = rows
 	fmt.Println(http.StatusOK, scores)
-	return c.JSON(http.StatusOK, scores)
+	return c.JSON(http.StatusOK, scores) */
 }
