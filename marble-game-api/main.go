@@ -25,6 +25,7 @@ func main() {
 	   	e.POST("/measurements", handlers.CreateMeasurement)
 	   	e.PUT("/users/:id", handlers.UpdateUser)
 	   	e.PUT("/measurements/:id", handlers.UpdateMeasurement) */
+	e.POST("/scores", handlers.CreateScore)
 
 	e.GET("/scores", handlers.GetScores)
 	//	e.Use(handlers.LogRequest)
