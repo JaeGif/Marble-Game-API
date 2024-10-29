@@ -1,6 +1,7 @@
 package main
 
 import (
+	storage "marble-game-api/cmd/database"
 	"marble-game-api/cmd/handlers"
 
 	"github.com/labstack/echo/v4"
@@ -10,12 +11,14 @@ import (
 func main() {
 	e := echo.New()
 	e.Debug = true
+	// Middleware
+	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
+	storage.InitDB()
 
 	e.GET("/", handlers.Home)
 
 	// connect to DB
-	// storage.InitDB()
 
 	// starting routes
 	/* 	e.POST("/users", handlers.CreateUser)

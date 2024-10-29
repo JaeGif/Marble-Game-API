@@ -8,14 +8,15 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-func GetScores (c echo.Context) error {
+func GetScores(c echo.Context) error {
 	fmt.Println("Entry")
-	
+
 	db := storage.GetDB()
+
 	if db == nil {
 		return echo.NewHTTPError(http.StatusInternalServerError, "Database connection failed")
 	}
-	
+
 	psqlStatement := `SELECT * FROM scores LIMIT 10`
 
 	rows, err := db.Query(psqlStatement)
@@ -28,5 +29,5 @@ func GetScores (c echo.Context) error {
 	fmt.Println(rows)
 	var scores = rows
 	fmt.Println(http.StatusOK, scores)
-	return c.JSON(http.StatusOK, scores) 
+	return c.JSON(http.StatusOK, scores)
 }

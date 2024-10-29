@@ -1,4 +1,4 @@
-package handlers
+/* package handlers
 
 import (
 	"marble-game-api/cmd/models"
@@ -20,19 +20,19 @@ func CreateMeasurement(c echo.Context) error {
 }
 func UpdateMeasurement(c echo.Context) error {
 	id := c.Param("id")
-  
+
 	idInt, err := strconv.Atoi(id)
 	if err != nil {
 	  return c.JSON(http.StatusInternalServerError, err.Error())
 	}
-  
+
 	measurement := models.Measurements{}
 	c.Bind(&measurement)
 	updatedMeasurement, err := repositories.UpdateMeasurement(measurement, idInt)
 	if err != nil {
 	  return c.JSON(http.StatusInternalServerError, err.Error())
 	}
-  
+
 	return c.JSON(http.StatusOK, updatedMeasurement)
   }
-  
+*/

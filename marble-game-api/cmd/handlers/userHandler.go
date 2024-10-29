@@ -1,4 +1,4 @@
-package handlers
+/* package handlers
 
 import (
 	"marble-game-api/cmd/models"
@@ -34,3 +34,4 @@ func UpdateUser(c echo.Context) error {
   }
   return c.JSON(http.StatusOK, updatedUser)
 }
+*/
